@@ -3,9 +3,9 @@
 ===============================================================*/
 /* USER CODE BEGIN Header */
  /*
- * main.h
+ * example.c
  *
- *  Created on: 30.09.2020
+ *  Created on: 06.10.2020
  *      Author: SimpleMethod
  *
  *Copyright 2020 SimpleMethod
@@ -76,15 +76,15 @@
 			HAL_Delay(250);
 			GNSS_GetPVTData(&GNSS_Handle);
 			GNSS_ParseBuffer(&GNSS_Handle);
-			my_printf("Day: %d-%d-%d \r\n", GNSS_Handle.day, GNSS_Handle.month,GNSS_Handle.year);
-			my_printf("Time: %d:%d:%d \r\n", GNSS_Handle.hour, GNSS_Handle.min,GNSS_Handle.sec);
-			my_printf("Status of fix: %d \r\n", GNSS_Handle.fixType);
-			my_printf("Latitude: %f \r\n", GNSS_Handle.fLat);
-			my_printf("Longitude: %f \r\n",(float) GNSS_Handle.lon / 10000000.0);
-			my_printf("Height above ellipsoid: %d \r\n", GNSS_Handle.height);
-			my_printf("Height above mean sea level: %d \r\n", GNSS_Handle.hMSL);
-			my_printf("Ground Speed (2-D): %d \r\n", GNSS_Handle.gSpeed);
-			my_printf("Unique ID: %04X %04X %04X %04X %04X \n\r",
+			printf("Day: %d-%d-%d \r\n", GNSS_Handle.day, GNSS_Handle.month,GNSS_Handle.year);
+			printf("Time: %d:%d:%d \r\n", GNSS_Handle.hour, GNSS_Handle.min,GNSS_Handle.sec);
+			printf("Status of fix: %d \r\n", GNSS_Handle.fixType);
+			printf("Latitude: %f \r\n", GNSS_Handle.fLat);
+			printf("Longitude: %f \r\n",(float) GNSS_Handle.lon / 10000000.0);
+			printf("Height above ellipsoid: %d \r\n", GNSS_Handle.height);
+			printf("Height above mean sea level: %d \r\n", GNSS_Handle.hMSL);
+			printf("Ground Speed (2-D): %d \r\n", GNSS_Handle.gSpeed);
+			printf("Unique ID: %04X %04X %04X %04X %04X \n\r",
 					GNSS_Handle.uniqueID[0], GNSS_Handle.uniqueID[1],
 					GNSS_Handle.uniqueID[2], GNSS_Handle.uniqueID[3],
 					GNSS_Handle.uniqueID[4], GNSS_Handle.uniqueID[5]);
