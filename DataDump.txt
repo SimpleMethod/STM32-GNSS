@@ -1,0 +1,198 @@
+╔═══════════════════════════════════════════════════════╦═════════════════╦══════╗
+║                     Byte Offset                       ║      Name       ║ Unit ║
+╠═══════════════════════════════════════════════════════╬═════════════════╬══════╣
+║                                                       ║                 ║      ║
+║ 32.17.15.1 Navigation position velocity time solution ║                 ║      ║
+║                                                       ║                 ║      ║
+║ 0                                                     ║ header          ║      ║
+║ 1                                                     ║ header          ║      ║
+║ 2                                                     ║ header          ║      ║
+║ 3                                                     ║ header          ║      ║
+║ 4                                                     ║ length          ║      ║
+║ 5                                                     ║ length          ║      ║
+║ 6                                                     ║ iTOW            ║      ║
+║ 7                                                     ║ iTOW            ║      ║
+║ 8                                                     ║ iTOW            ║      ║
+║ 9                                                     ║ iTOW            ║      ║
+║ 10                                                    ║ year            ║ U2   ║
+║ 11                                                    ║ year            ║ U2   ║
+║ 12                                                    ║ month           ║ U1   ║
+║ 13                                                    ║ day             ║ U1   ║
+║ 14                                                    ║ hour            ║ U1   ║
+║ 15                                                    ║ min             ║ U1   ║
+║ 16                                                    ║ sec             ║ U1   ║
+║ 17                                                    ║ valid           ║      ║
+║ 18                                                    ║ tAcc            ║      ║
+║ 19                                                    ║ tAcc            ║      ║
+║ 20                                                    ║ tAcc            ║      ║
+║ 21                                                    ║ tAcc            ║      ║
+║ 22                                                    ║ nano            ║      ║
+║ 23                                                    ║ nano            ║      ║
+║ 24                                                    ║ nano            ║      ║
+║ 25                                                    ║ nano            ║      ║
+║ 26                                                    ║ fixType         ║ U1   ║
+║ 27                                                    ║ flags1          ║      ║
+║ 28                                                    ║ flags2          ║      ║
+║ 29                                                    ║ numSV           ║      ║
+║ 30                                                    ║ lon             ║ I4   ║
+║ 31                                                    ║ lon             ║ I4   ║
+║ 32                                                    ║ lon             ║ I4   ║
+║ 33                                                    ║ lon             ║ I4   ║
+║ 34                                                    ║ lat             ║ I4   ║
+║ 35                                                    ║ lat             ║ I4   ║
+║ 36                                                    ║ lat             ║ I4   ║
+║ 37                                                    ║ lat             ║ I4   ║
+║ 38                                                    ║ height          ║ I4   ║
+║ 39                                                    ║ height          ║ I4   ║
+║ 40                                                    ║ height          ║ I4   ║
+║ 41                                                    ║ height          ║ I4   ║
+║ 42                                                    ║ hMSL            ║ I4   ║
+║ 43                                                    ║ hMSL            ║ I4   ║
+║ 44                                                    ║ hMSL            ║ I4   ║
+║ 45                                                    ║ hMSL            ║ I4   ║
+║ 46                                                    ║ hAcc            ║ U4   ║
+║ 47                                                    ║ hAcc            ║ U4   ║
+║ 48                                                    ║ hAcc            ║ U4   ║
+║ 49                                                    ║ hAcc            ║ U4   ║
+║ 50                                                    ║ vAcc            ║ U4   ║
+║ 51                                                    ║ vAcc            ║ U4   ║
+║ 52                                                    ║ vAcc            ║ U4   ║
+║ 53                                                    ║ vAcc            ║ U4   ║
+║ 54                                                    ║ velN            ║      ║
+║ 55                                                    ║ velN            ║      ║
+║ 56                                                    ║ velN            ║      ║
+║ 57                                                    ║ velN            ║      ║
+║ 58                                                    ║ velE            ║      ║
+║ 59                                                    ║ velE            ║      ║
+║ 60                                                    ║ velE            ║      ║
+║ 61                                                    ║ velE            ║      ║
+║ 62                                                    ║ velD            ║      ║
+║ 63                                                    ║ velD            ║      ║
+║ 64                                                    ║ velD            ║      ║
+║ 65                                                    ║ velD            ║      ║
+║ 66                                                    ║ gSpeed          ║ I4   ║
+║ 67                                                    ║ gSpeed          ║ I4   ║
+║ 68                                                    ║ gSpeed          ║ I4   ║
+║ 69                                                    ║ gSpeed          ║ I4   ║
+║ 70                                                    ║ headMot         ║ I4   ║
+║ 71                                                    ║ headMot         ║ I4   ║
+║ 72                                                    ║ headMot         ║ I4   ║
+║ 73                                                    ║ headMot         ║ I4   ║
+║ 74                                                    ║ sAcc            ║      ║
+║ 75                                                    ║ sAcc            ║      ║
+║ 76                                                    ║ sAcc            ║      ║
+║ 77                                                    ║ sAcc            ║      ║
+║ 78                                                    ║ headAcc         ║      ║
+║ 79                                                    ║ headAcc         ║      ║
+║ 80                                                    ║ headAcc         ║      ║
+║ 81                                                    ║ headAcc         ║      ║
+║ 82                                                    ║ pDOP            ║      ║
+║ 83                                                    ║ pDOP            ║      ║
+║ 84                                                    ║ flags3          ║      ║
+║ 85                                                    ║ reserved1       ║      ║
+║ 86                                                    ║ reserved1       ║      ║
+║ 87                                                    ║ reserved1       ║      ║
+║ 88                                                    ║ reserved1       ║      ║
+║ 89                                                    ║ reserved1       ║      ║
+║ 90                                                    ║ headVeh         ║      ║
+║ 91                                                    ║ headVeh         ║      ║
+║ 92                                                    ║ headVeh         ║      ║
+║ 93                                                    ║ headVeh         ║      ║
+║ 94                                                    ║ magDec          ║      ║
+║ 95                                                    ║ magDec          ║      ║
+║ 96                                                    ║ magAcc          ║      ║
+║ 97                                                    ║ magAcc          ║      ║
+║ 98                                                    ║ checksum        ║      ║
+║ 99                                                    ║ checksum        ║      ║
+║                                                       ║                 ║      ║
+║ 32.19.1.1 Unique chip ID                              ║                 ║      ║
+║                                                       ║                 ║      ║
+║ 0                                                     ║ header          ║      ║
+║ 1                                                     ║ header          ║      ║
+║ 2                                                     ║ header          ║      ║
+║ 3                                                     ║ header          ║      ║
+║ 4                                                     ║ length          ║      ║
+║ 5                                                     ║ length          ║      ║
+║ 6                                                     ║ Message version ║      ║
+║ 7                                                     ║ res             ║      ║
+║ 8                                                     ║ res             ║      ║
+║ 9                                                     ║ res             ║      ║
+║ 10                                                    ║ id              ║ U1   ║
+║ 11                                                    ║ id              ║ U1   ║
+║ 12                                                    ║ id              ║ U1   ║
+║ 13                                                    ║ id              ║ U1   ║
+║ 14                                                    ║ id              ║ U1   ║
+║ 15                                                    ║ checksum        ║      ║
+║ 16                                                    ║ checksum        ║      ║
+║                                                       ║                 ║      ║
+║ 32.17.30.1 UTC time solution                          ║                 ║      ║
+║                                                       ║                 ║      ║
+║ 0                                                     ║ header          ║      ║
+║ 1                                                     ║ header          ║      ║
+║ 2                                                     ║ header          ║      ║
+║ 3                                                     ║ header          ║      ║
+║ 4                                                     ║ length          ║      ║
+║ 5                                                     ║ length          ║      ║
+║ 6                                                     ║ iTOW            ║      ║
+║ 7                                                     ║ iTOW            ║      ║
+║ 8                                                     ║ iTOW            ║      ║
+║ 9                                                     ║ iTOW            ║      ║
+║ 10                                                    ║ tAcc            ║      ║
+║ 11                                                    ║ tAcc            ║      ║
+║ 12                                                    ║ tAcc            ║      ║
+║ 13                                                    ║ tAcc            ║      ║
+║ 14                                                    ║ nano            ║      ║
+║ 15                                                    ║ nano            ║      ║
+║ 16                                                    ║ nano            ║      ║
+║ 17                                                    ║ nano            ║      ║
+║ 18                                                    ║ year            ║ U2   ║
+║ 19                                                    ║ year            ║ U2   ║
+║ 20                                                    ║ month           ║ U1   ║
+║ 21                                                    ║ day             ║ U1   ║
+║ 22                                                    ║ hour            ║ U1   ║
+║ 23                                                    ║ min             ║ U1   ║
+║ 24                                                    ║ sec             ║ U1   ║
+║ 25                                                    ║ valid           ║      ║
+║ 26                                                    ║ checksum        ║      ║
+║ 27                                                    ║ checksum        ║      ║
+║                                                       ║                 ║      ║
+║ 32.17.14.1  Geodetic position solution                ║                 ║      ║
+║                                                       ║                 ║      ║
+║ 0                                                     ║ header          ║      ║
+║ 1                                                     ║ header          ║      ║
+║ 2                                                     ║ header          ║      ║
+║ 3                                                     ║ header          ║      ║
+║ 4                                                     ║ length          ║      ║
+║ 5                                                     ║ length          ║      ║
+║ 6                                                     ║ iTOW            ║      ║
+║ 7                                                     ║ iTOW            ║      ║
+║ 8                                                     ║ iTOW            ║      ║
+║ 9                                                     ║ iTOW            ║      ║
+║ 10                                                    ║ lon             ║ I4   ║
+║ 11                                                    ║ lon             ║ I4   ║
+║ 12                                                    ║ lon             ║ I4   ║
+║ 13                                                    ║ lon             ║ I4   ║
+║ 14                                                    ║ lat             ║ I4   ║
+║ 15                                                    ║ lat             ║ I4   ║
+║ 16                                                    ║ lat             ║ I4   ║
+║ 17                                                    ║ lat             ║ I4   ║
+║ 18                                                    ║ height          ║ I4   ║
+║ 19                                                    ║ height          ║ I4   ║
+║ 20                                                    ║ height          ║ I4   ║
+║ 21                                                    ║ height          ║ I4   ║
+║ 22                                                    ║ hMSL            ║ I4   ║
+║ 23                                                    ║ hMSL            ║ I4   ║
+║ 24                                                    ║ hMSL            ║ I4   ║
+║ 25                                                    ║ hMSL            ║ I4   ║
+║ 26                                                    ║ hAcc            ║ U4   ║
+║ 27                                                    ║ hAcc            ║ U4   ║
+║ 28                                                    ║ hAcc            ║ U4   ║
+║ 29                                                    ║ hAcc            ║ U4   ║
+║ 30                                                    ║ vAcc            ║ U4   ║
+║ 31                                                    ║ vAcc            ║ U4   ║
+║ 32                                                    ║ vAcc            ║ U4   ║
+║ 33                                                    ║ vAcc            ║ U4   ║
+║ 34                                                    ║ checksum        ║      ║
+║ 35                                                    ║ checksum        ║      ║
+╚═══════════════════════════════════════════════════════╩═════════════════╩══════╝
+
