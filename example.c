@@ -5,7 +5,7 @@
  /*
  * example.c
  *
- *  Created on: 06.10.2020
+ *  Created on: 06.09.2020
  *      Author: SimpleMethod
  *
  *Copyright 2020 SimpleMethod
@@ -68,9 +68,6 @@
 	while (1) {
 
 		if ((HAL_GetTick() - Timer) > 1000) {
-			HAL_GPIO_TogglePin(LED_D2_GPIO_Port, LED_D2_Pin);
-
-			//getNavigatorData
 			GNSS_GetUniqID(&GNSS_Handle);
 			GNSS_ParseBuffer(&GNSS_Handle);
 			HAL_Delay(250);
