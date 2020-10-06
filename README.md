@@ -74,8 +74,8 @@
 
 | PERIPHERALS | MODES                 | FUNCTIONS      | PINS              |
 |-------------|-----------------------|----------------|-------------------|
-| USART1      | Asynchronous          | I2C1_SCL       | PB6               |
-| USART1      | Asynchronous          | I2C1_SDA       | PB10              |
+| USART1      | Asynchronous          | USART2_RX      | PB10              |
+| USART1      | Asynchronous          | USART2_TX      | PB6               |
 | SYS         | Trace Asynchronous Sw | SYS_JTMS-SWDIO | PA13              |
 | SYS         | Trace Asynchronous Sw | SYS_JTCK-SWCLK | PA14              |
 | SYS         | Trace Asynchronous Sw | SYS_JTDO-SWO   | PB3               |
