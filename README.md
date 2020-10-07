@@ -45,9 +45,13 @@
 - [x] MAX-M8Q
 - [x] NEO-M8
 - [x] NEO-M9N
+# NVIC configuration:
+|                             Interrupt Table                             | Enable | Preenmption Priority | SubPriority |
+|-------------------------------------------------------------------------|--------|----------------------|-------------|
+| USART1 global interrupt / USART1 wake-up interrupt through EXTI line 25 |  true  |                    0 |           0 |
+| USART2 global interrupt / USART2 wake-up interrupt through EXTI line 26 | true   |                    0 |           0 |
 
 # DMA configuration:
-
 | DMA request |    Stream     |      Direction       | Priority |
 |-------------|---------------|----------------------|----------|
 | USART1_RX   | DMA1_Channel3 | Peripheral To Memory | Low      |
