@@ -88,7 +88,7 @@
 | USART2      | Asynchronous          | USART2_TX      | PA2               |
 
 
-### **For using printf with float should be add flag -u _printf_float in C compiler**
+### **For using printf with float should be add flag -u _printf_float in C linker**
 
 ![enter image description here](https://raw.githubusercontent.com/SimpleMethod/STM32-AM2320/master/Images/am2320_Atolic_TrueSTUDIO.png)
 
