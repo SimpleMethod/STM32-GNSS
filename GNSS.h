@@ -147,6 +147,7 @@ void GNSS_ParsePOSLLHData(GNSS_StateHandle *GNSS);
 void GNSS_GetPVTData(GNSS_StateHandle *GNSS);
 void GNSS_ParsePVTData(GNSS_StateHandle *GNSS);
 
+void GNSS_SetMode(GNSS_StateHandle *GNSS, short gnssMode);
 #endif /* INC_GNSS_H_ */
 
 
