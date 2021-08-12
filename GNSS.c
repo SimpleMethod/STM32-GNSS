@@ -129,11 +129,38 @@ void GNSS_GetPVTData(GNSS_StateHandle *GNSS) {
  * @param GNSS Pointer to main GNSS structure.
  */
 void GNSS_ParseUniqID(GNSS_StateHandle *GNSS) {
-	for (int var = 0; var <= 5; ++var) {
+	for (int var = 0; var < 5; ++var) {
 		GNSS->uniqueID[var] = GNSS_Handle.uartWorkingBuffer[10 + var];
 	}
 }
 
+/*!
+ * Changing the GNSS mode.
+ * Look at: 32.10.19 u-blox 8 Receiver description
+ */
+void GNSS_SetMode(GNSS_StateHandle *GNSS, short gnssMode) {
+	if (gnssMode == 0) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setPortableMode,sizeof(setPortableMode) / sizeof(uint8_t));
+	} else if (gnssMode == 1) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setStationaryMode,sizeof(setStationaryMode) / sizeof(uint8_t));
+	} else if (gnssMode == 2) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setPedestrianMode,sizeof(setPedestrianMode) / sizeof(uint8_t));
+	} else if (gnssMode == 3) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setAutomotiveMode,sizeof(setAutomotiveMode) / sizeof(uint8_t));
+	} else if (gnssMode == 4) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setAutomotiveMode,sizeof(setAutomotiveMode) / sizeof(uint8_t));
+	} else if (gnssMode == 5) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setAirbone1GMode,sizeof(setAirbone1GMode) / sizeof(uint8_t));
+	} else if (gnssMode == 6) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setAirbone2GMode,sizeof(setAirbone2GMode) / sizeof(uint8_t));
+	} else if (gnssMode == 7) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setAirbone4GMode,sizeof(setAirbone4GMode) / sizeof(uint8_t));
+	} else if (gnssMode == 8) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setWirstMode,sizeof(setWirstMode) / sizeof(uint8_t));
+	} else if (gnssMode == 9) {
+		HAL_UART_Transmit_DMA(GNSS->huart, setBikeMode,sizeof(setBikeMode) / sizeof(uint8_t));
+	}
+}
 /*!
  * Parse data to navigation position velocity time solution standard.
  * Look at: 32.17.15.1 u-blox 8 Receiver description.
@@ -141,7 +168,9 @@ void GNSS_ParseUniqID(GNSS_StateHandle *GNSS) {
  */
 void GNSS_ParsePVTData(GNSS_StateHandle *GNSS) {
 	uShort.bytes[0] = GNSS_Handle.uartWorkingBuffer[10];
+	GNSS->yearBytes[0]=GNSS_Handle.uartWorkingBuffer[10];
 	uShort.bytes[1] = GNSS_Handle.uartWorkingBuffer[11];
+	GNSS->yearBytes[1]=GNSS_Handle.uartWorkingBuffer[11];
 	GNSS->year = uShort.uShort;
 	GNSS->month = GNSS_Handle.uartWorkingBuffer[12];
 	GNSS->day = GNSS_Handle.uartWorkingBuffer[13];
@@ -152,11 +181,13 @@ void GNSS_ParsePVTData(GNSS_StateHandle *GNSS) {
 
 	for (int var = 0; var < 4; ++var) {
 		iLong.bytes[var] = GNSS_Handle.uartWorkingBuffer[var + 30];
+		GNSS->lonBytes[var]= GNSS_Handle.uartWorkingBuffer[var + 30];
 	}
 	GNSS->lon = iLong.iLong;
 	GNSS->fLon=(float)iLong.iLong/10000000.0;
 	for (int var = 0; var < 4; ++var) {
 		iLong.bytes[var] = GNSS_Handle.uartWorkingBuffer[var + 34];
+		GNSS->latBytes[var]=GNSS_Handle.uartWorkingBuffer[var + 34];
 	}
 	GNSS->lat = iLong.iLong;
 	GNSS->fLat=(float)iLong.iLong/10000000.0;
@@ -167,6 +198,7 @@ void GNSS_ParsePVTData(GNSS_StateHandle *GNSS) {
 
 	for (int var = 0; var < 4; ++var) {
 		iLong.bytes[var] = GNSS_Handle.uartWorkingBuffer[var + 42];
+		GNSS->hMSLBytes[var] = GNSS_Handle.uartWorkingBuffer[var + 42];
 	}
 	GNSS->hMSL = iLong.iLong;
 
@@ -182,6 +214,7 @@ void GNSS_ParsePVTData(GNSS_StateHandle *GNSS) {
 
 	for (int var = 0; var < 4; ++var) {
 		iLong.bytes[var] = GNSS_Handle.uartWorkingBuffer[var + 66];
+		GNSS->gSpeedBytes[var] = GNSS_Handle.uartWorkingBuffer[var + 66];
 	}
 	GNSS->gSpeed = iLong.iLong;
 
@@ -261,6 +294,8 @@ void GNSS_LoadConfig(GNSS_StateHandle *GNSS) {
 			sizeof(setGNSS) / sizeof(uint8_t));
 	HAL_Delay(250);
 }
+
+
 
 /*!
  *  Creates a checksum based on UBX standard.
